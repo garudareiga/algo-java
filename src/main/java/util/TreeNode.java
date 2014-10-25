@@ -7,7 +7,8 @@ public class TreeNode {
     public int val;
     public TreeNode left;
     public TreeNode right;
-    public TreeNode(int x) { val = x; left = null; right = null; }
+    public TreeNode parent;
+    public TreeNode(int x) { val = x; left = null; right = null; parent = null; }
     
 	static public void printTree(TreeNode root) {
 		StringBuilder bs = new StringBuilder();
@@ -17,7 +18,7 @@ public class TreeNode {
 		while (!q.isEmpty()) {
 			TreeNode node = q.remove();
 			if (node != null) {
-				bs.append(node.val);
+				bs.append(node.val + " ");
 				if (node.left != null || node.right != null) {
 					q.add(node.left);
 					q.add(node.right);

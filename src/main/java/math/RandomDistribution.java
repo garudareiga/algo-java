@@ -5,7 +5,11 @@ import java.util.*;
 import org.apache.commons.math3.distribution.*;
 import org.apache.commons.math3.util.*;
 
-/*
+/**
+ * 
+ * @author raychen
+ * 
+ * Problem:
  * Given an array a = ['x', 'b', ..., 'c'] of n chars, and b = [0.1, 0.2, ..., 0.01] 
  * of true probability. Write a random generator that generates the chars according to 
  * the probability.

@@ -1,4 +1,4 @@
-package diagonal_matrix;
+package matrix;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package quick_sorting;
+package sort;
 
 /* 
  * Given a collection of n nuts of distinct sizes and n bolts such that 
@@ -9,22 +9,19 @@ package quick_sorting;
 
 public class NutsAndBolts {
 	public static class NutBoltMatchObject {
-		public NutBoltMatchObject(int size) {
-			this.size = size;
-		}
+		public NutBoltMatchObject(int s) { size = s; }
 		public int size;
 	}
 	
 	public static class Nut extends NutBoltMatchObject {
-		public Nut(int size) {
-	        super(size);
-        }}
-	public static class Bolt extends NutBoltMatchObject {
-		public Bolt(int size) {
-	        super(size);
-        }}
+		public Nut(int size) { super(size); }
+	}
 	
-	public int compare(NutBoltMatchObject n, NutBoltMatchObject b) {
+	public static class Bolt extends NutBoltMatchObject {
+		public Bolt(int size) { super(size); }
+	}
+	
+	private int compare(NutBoltMatchObject n, NutBoltMatchObject b) {
 		return n.size - b.size;
 	}
 	

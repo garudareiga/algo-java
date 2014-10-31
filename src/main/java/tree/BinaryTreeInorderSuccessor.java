@@ -1,4 +1,4 @@
-package binary_tree_inorder_successor;
+package tree;
 
 import util.TreeNode;
 

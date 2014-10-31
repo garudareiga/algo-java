@@ -10,7 +10,7 @@ public class TreeNode {
     public TreeNode parent;
     public TreeNode(int x) { val = x; left = null; right = null; parent = null; }
     
-	static public void printTree(TreeNode root) {
+	public static void printTree(TreeNode root) {
 		StringBuilder bs = new StringBuilder();
 		Queue<TreeNode> q = new LinkedList<TreeNode>();
 		
@@ -29,4 +29,38 @@ public class TreeNode {
 		}
 		System.out.println(bs.toString());
 	}
+	
+	public static String inorderString(TreeNode root) {
+	    StringBuilder sb = new StringBuilder();
+	    inorderString(root, sb);
+	    return sb.toString();
+	}
+	
+	private static void inorderString(TreeNode root, StringBuilder sb) {
+	    if (root == null) return;
+	    inorderString(root.left, sb);
+	    sb.append(root.val);
+	    inorderString(root.right, sb);
+	}
+	
+   public static String preorderString(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        preorderString(root, sb);
+        return sb.toString();
+    }
+    
+    private static void preorderString(TreeNode root, StringBuilder sb) {
+        if (root == null) return;
+        sb.append(root.val);
+        preorderString(root.left, sb);        
+        inorderString(root.right, sb);
+    }
+    
+    public static boolean isSameTree(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) return true;
+        if (root1 == null || root2 == null) return false;
+        return (root1.val == root2.val) && 
+                isSameTree(root1.left, root2.left) &&
+                isSameTree(root1.right, root2.right);
+    }
 }

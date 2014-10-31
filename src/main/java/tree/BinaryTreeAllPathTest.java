@@ -1,4 +1,4 @@
-package binary_tree_all_path;
+package tree;
 
 import static org.junit.Assert.*;
 

@@ -1,10 +1,8 @@
-package quick_sorting;
-
-import static org.junit.Assert.*;
+package sort;
 
 import org.junit.Test;
 
-import quick_sorting.NutsAndBolts.*;
+import sort.NutsAndBolts.*;
 
 public class NutsAndBoltsTest {
 

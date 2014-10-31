@@ -1,4 +1,4 @@
-package binary_search_tree_lowest_common_ancestor;
+package tree;
 
 import util.TreeNode;
 

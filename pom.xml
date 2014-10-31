@@ -14,9 +14,19 @@
         <!-- Test -->
         <junit.version>4.11</junit.version>
 
-    </properties>
+        <!-- Apache Commons -->
+        <commons-math3.version>3.3</commons-math3.version>
+  </properties>
     
     <dependencies>
+        <!-- Logging with SLF4J & LogBack -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>${commons-math3.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    
         <!-- Logging with SLF4J & LogBack -->
         <dependency>
             <groupId>org.slf4j</groupId>

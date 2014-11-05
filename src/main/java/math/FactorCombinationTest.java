@@ -5,17 +5,18 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import java.util.*;
 
-public class IntegerDivisionTest {
+public class FactorCombinationTest {
 
 	@Test
 	public void test() {
-		IntegerDivision sol = new IntegerDivision();
+		FactorCombination sol = new FactorCombination();
 		List<List<Integer>> result = sol.find(24);
 		for (List<Integer> lt : result) {
 			for (Integer v : lt) 
 				System.out.print(v + " ");
 			System.out.println();
 		}
+		assertEquals(6, result.size());
 	}
 
 }

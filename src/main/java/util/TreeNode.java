@@ -1,4 +1,4 @@
-package util;
+ package util;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -19,12 +19,10 @@ public class TreeNode {
 			TreeNode node = q.remove();
 			if (node != null) {
 				bs.append(node.val + " ");
-				if (node.left != null || node.right != null) {
-					q.add(node.left);
-					q.add(node.right);
-				}
+				q.add(node.left);
+				q.add(node.right);
 			} else {
-				bs.append('#');
+				bs.append("# ");
 			}
 		}
 		System.out.println(bs.toString());

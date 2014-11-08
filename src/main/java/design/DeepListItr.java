@@ -25,7 +25,7 @@ public class DeepListItr {
 
     @SuppressWarnings("unchecked")
     private void extract() {
-        while (!stack.isEmpty() && (stack.peek() instanceof Collection<?>)) {
+        while (!stack.isEmpty() && (stack.peek() instanceof List<?>)) {
             List<Object> top = (List<Object>) stack.pop();
             for (int i = top.size() - 1; i >= 0; i--)
                 stack.push(top.get(i));            

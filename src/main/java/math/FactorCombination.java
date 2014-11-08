@@ -15,9 +15,14 @@ import java.util.*;
  *       2*3*4
  *       3*8
  *       4*6
+ *       
+ * Different version:
+ * 4 -> 1 + 1 + 1 + 1
+ *      1 + 1 + 2
+ *      2 + 2    
  */
 
-public class FactorCombination {
+public class FactorCombination {        
     public List<List<Integer>> find(int value) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         Stack<Integer> stack = new Stack<Integer>();
@@ -31,7 +36,7 @@ public class FactorCombination {
         int dividend = stack.pop();
         int start = stack.isEmpty() ? 2 : stack.peek();
         for (int divisor = start; divisor < dividend; divisor++) {
-        if (dividend / divisor < divisor) break;
+            if (dividend / divisor < divisor) break;
             if (dividend % divisor == 0) {
             	int quotient = dividend / divisor;
             	stack.push(divisor);

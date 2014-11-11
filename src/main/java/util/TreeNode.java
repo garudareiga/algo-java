@@ -61,4 +61,16 @@ public class TreeNode {
                 isSameTree(root1.left, root2.left) &&
                 isSameTree(root1.right, root2.right);
     }
+    
+    public static TreeNode getMinTreeNode(TreeNode root) {
+        // Get the smallest in the tree
+        if (root == null || root.left == null) return root;
+        return getMinTreeNode(root.left);
+    }
+    
+    public static TreeNode getMaxTreeNode(TreeNode root) {
+        // Get the largest in the tree
+        if (root == null || root.right == null) return root;
+        return getMinTreeNode(root.right);
+    }
 }

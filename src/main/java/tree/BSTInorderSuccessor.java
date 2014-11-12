@@ -19,7 +19,7 @@ import util.TreeNode;
  * 
  */
 
-public class BinaryTreeInorderSuccessor {
+public class BSTInorderSuccessor {
 	public int nextValue(TreeNode root, int target) {
 		/*
 		 * Time complexity: O(log(n))
@@ -39,26 +39,24 @@ public class BinaryTreeInorderSuccessor {
 	
 	TreeNode inorderSuccessor(TreeNode root, TreeNode n) {
 		// 1. The right child is not NULL
-		if (n.right != null) 
-			return minValue(n.right);
+		if (n.right != null) return TreeNode.getMinTreeNode(n.right);
 		// 2. The right child is NULL
-		TreeNode next = null;
+		TreeNode parent = null;
 		while (root != null) {
 			if (n.val < root.val) {
-				next = root;
+				parent = root;
 				root = root.left;
 			} else if (n.val > root.val) {
 				root = root.right;
 			}
 			else break;
 		}
-		return next;
+		return parent;
 	}
 	
 	TreeNode inorderSuccessorUsingParent(TreeNode root, TreeNode n) {
 		// 1. The right child is not NULL
-		if (n.right != null) 
-			return minValue(n.right);
+		if (n.right != null) return TreeNode.getMinTreeNode(n.right);
 		// 2. The right child is NULL
 		TreeNode p = n.parent;
 		while (p != null && p.right == n) {
@@ -66,11 +64,5 @@ public class BinaryTreeInorderSuccessor {
 			p = n.parent;
 		}
 		return p;
-	}
-	
-	TreeNode minValue(TreeNode root) {
-		while (root.left != null)
-			root = root.left;
-		return root;
 	}
 }

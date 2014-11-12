@@ -30,10 +30,10 @@ public class InsertionCyclicSortedList {
             head = newNode;
         } else {
             // Insert in the middle or at the tail
-            ListNode prev = null, curr = head;
-            do {
+            ListNode prev = head, curr = prev.next;
+            while (curr != head && curr.val < value) {
                 prev = curr; curr = curr.next;
-            } while (curr != head && curr.val < value);
+            }
             prev.next = newNode;
             newNode.next = curr;
         }

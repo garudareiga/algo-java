@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import util.TreeNode;
 
-public class BinaryTreeInorderSuccessorTest {
+public class BSTInorderSuccessorTest {
 
 	@Test
 	public void test() {
@@ -33,7 +33,7 @@ public class BinaryTreeInorderSuccessorTest {
 		
 		TreeNode.printTree(node_1);
 		
-		BinaryTreeInorderSuccessor sol = new BinaryTreeInorderSuccessor();
+		BSTInorderSuccessor sol = new BSTInorderSuccessor();
 		assertEquals(10, sol.nextValue(node_1, 8));
 		assertEquals(12, sol.nextValue(node_1, 10));
 		assertEquals(20, sol.nextValue(node_1, 14));

@@ -14,11 +14,13 @@ public class DiagonalMatrixTest {
 			{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}
 		};
 		DiagonalMatrix sol = new DiagonalMatrix();
-		List<Integer> result = sol.spiralOrder(matrix);
+		List<Integer> result = sol.diagonalOrder(matrix);
 		System.out.println("1 2 4 3 5 7 6 8 10 9 11 12 ? =>");
 		for (Integer n : result) System.out.print(n + " ");
 		System.out.println();
 		assertEquals(12, result.size());
+		
+		sol.diagonalOrder_2(matrix);
 	}
 
 }

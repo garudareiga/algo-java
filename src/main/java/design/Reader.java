@@ -12,8 +12,9 @@ import java.io.*;
 
 public class Reader {
     private InputStream is = null;
-    private int start = 0, end = 0, offset = 0;
+    private int start = 0, end = 0;
     private byte[] buffer = new byte[4*1024];
+    private boolean endOfFile = false;
     
     public Reader(InputStream is) {
         this.is = is;
@@ -27,7 +28,7 @@ public class Reader {
         while (N > 0) {
             if (start == end) { // buffer is empty
                 start = 0; end = read4K(buffer);
-                if (end == 0) break;
+                if (end == -1) break;
             }
             int copySize = Math.min(N, end - start);
             System.arraycopy(buffer, start, array, p, copySize);
@@ -46,14 +47,14 @@ public class Reader {
         while (N > 0) {
             if (start == end) { // buffer is empty
                 if (N > 4*1024) {
-                 // copy directly to array instead of buffer to save memory
+                    // copy directly to array instead of buffer to save memory
                     int copySize = read(array, p); 
                     p += copySize;
                     N -= copySize;
                     if (copySize < 4*1024) break; // EOF
                 } else {
                     start = 0; end = read4K(buffer, 0);
-                    if (end == 0) break; // EOF
+                    if (end == -1) break; // EOF
                 }
             } else {
                 int copySize = Math.min(N, end - start);
@@ -67,39 +68,26 @@ public class Reader {
     }
     
     public String readLine() {
+        if (endOfFile) return null;
         StringBuilder sb = new StringBuilder();
-        while (true) {
+        while (!endOfFile) {
             if (start == end) { // buffer is empty
-                start = 0; end = read4K(buffer);                
-                if (end == -1) {
-                    if (sb.length() == 0) return null; // EOF
-                    else break;
-                }
-                //System.out.println(new String(buffer));
+                start = 0; end = read4K(buffer);   
+                if (end == -1) endOfFile = true;
             } else {
-                sb.append((char)buffer[start++]);
-                if (buffer[start - 1] == '\n') return sb.toString();
+                char c = (char)buffer[start++];
+                sb.append(c);
+                if (c == '\n') break;
             }
         }
         return sb.toString(); // EOF
     }
     
-    public void print() {
-        System.out.println("start=" + start + ", end=" + end);
-    }
-    
     private int read4K(byte[] buffer) {
-        try {
-            int size = is.read(buffer, this.offset, 1024);
-            this.offset += size;
-            return size;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return -1;
+        return read4K(buffer, 0);
     }
     
-    private int read4K(byte[] buffer, int offset) {
+    public int read4K(byte[] buffer, int offset) {
         try {
             return is.read(buffer, offset, 1024);
         } catch (IOException e) {
@@ -109,20 +97,18 @@ public class Reader {
     }
         
     public static void main(String[] args) {
-        File file = new File("/Users/raychen/tmp.txt");
+        File file = new File("/Users/lchen16/Spurs.txt");
         try {
             FileInputStream fis = new FileInputStream(file);
             Reader reader = new Reader(fis);
+            
             for (int i = 1; i <= 20; i++) {
                 String line = reader.readLine();
                 if (line == null) break;
-                System.out.print(i + " : " + line);
-                //reader.print();
+                System.out.println(i + " : " + line);
             }
-            System.out.println("END");
             fis.close();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

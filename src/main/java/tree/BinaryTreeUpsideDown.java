@@ -19,7 +19,7 @@ import util.*;
  *    6   7                6 - 7
  */
 
-public class BinaryTreeFlip {
+public class BinaryTreeUpsideDown {
     public TreeNode flip(TreeNode root) {
         if (root == null) return null;
         //return flipRecursive(root, null, null);

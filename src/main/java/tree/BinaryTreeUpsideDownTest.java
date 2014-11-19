@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import util.TreeNode;
 
-public class BinaryTreeFlipTest {
+public class BinaryTreeUpsideDownTest {
 
     @Test
     public void test() {
@@ -27,7 +27,7 @@ public class BinaryTreeFlipTest {
         System.out.println("Tree:");
         TreeNode.printTree(node_1);
         
-        BinaryTreeFlip sol = new BinaryTreeFlip();
+        BinaryTreeUpsideDown sol = new BinaryTreeUpsideDown();
         TreeNode root = sol.flip(node_1);
         TreeNode.printTree(root);
     }

@@ -16,6 +16,7 @@
 
         <!-- Apache Commons -->
         <commons-math3.version>3.3</commons-math3.version>
+        <commons-lang3.version>3.3</commons-lang3.version>
         
         <!-- Google Guava -->
         <guava.version>18.0</guava.version>
@@ -27,6 +28,14 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
             <version>${commons-math3.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        <!-- Apache commons lang -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
             <scope>compile</scope>
         </dependency>
         

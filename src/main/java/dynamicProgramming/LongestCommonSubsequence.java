@@ -6,6 +6,10 @@ package dynamicProgramming;
  * 
  * Problem:
  * Given two strings, find the length of longest common subsequence.
+ * 1. Using Dynamic Programming
+ * http://www.geeksforgeeks.org/dynamic-programming-set-4-longest-common-subsequence/
+ * 2. Using Suffix Tree
+ * http://algs4.cs.princeton.edu/63suffix/LongestCommonSubstring.java.html
  * 
  * For example,
  * Given "ABAZDC" and "BACBAD", the longest length is 4 of "ABAD".
@@ -43,6 +47,5 @@ public class LongestCommonSubsequence {
             }
         }
         return sb.reverse().toString();
-        //return array[len1][len2];
     }
 }

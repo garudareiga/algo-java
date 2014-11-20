@@ -3,7 +3,7 @@ package util;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Interval {
+public class Interval implements Comparable<Interval> {
 	public int start;
 	public int end;
 	public Interval() { start = 0; end = 0; }
@@ -26,5 +26,9 @@ public class Interval {
     	}
     	intervals.add(newInterval);
       	return intervals;
+    }
+    
+    public int compareTo(Interval interval) {
+        return this.start - interval.start;
     }
 }

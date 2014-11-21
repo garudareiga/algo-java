@@ -35,6 +35,9 @@ public class IntervalScheduling {
     }
     
     public int maxMeetingRoom() {
+        /*
+         * Time Complexity: O(nlog(n)) using priority queue
+         */
         MinMaxPriorityQueue<Integer> q = MinMaxPriorityQueue.create();
         for (int i = 0; i < intervals.size(); i++) {
             Interval interval = intervals.get(i);

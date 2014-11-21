@@ -9,6 +9,13 @@ package dynamicProgramming;
  * 
  * For example,
  * Given "ABABC" and "BABCA", the longest length is 3 of "ABC" or "BAB"
+ * 
+ * 1. Using Dynamic Programming
+ *    Time Complexity: O(m*n), Space Complexity: O(m*n)
+ * 2. Using Suffix Tree
+ * 
+ * http://www.geeksforgeeks.org/longest-common-substring/
+ * http://algs4.cs.princeton.edu/63suffix/LongestCommonSubstring.java.html
  */ 
 
 public class LongestCommonSubstring {

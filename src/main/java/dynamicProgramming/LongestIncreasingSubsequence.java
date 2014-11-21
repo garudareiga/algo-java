@@ -30,7 +30,7 @@ package dynamicProgramming;
  *    What we can do about it:
  *    1. insert it at the back if A_i,j < a_i + 1, where we will have a longer one;
  *    2. make it an alternative for A_i,k if A_{i,k-1} < a_{i+1} AND a_{i+1} <= A_{i,k}
- *    Alternative means that we MIGHT get longer ones if using the new element.  
+ *       Alternative means that we MIGHT get longer ones if using the new element.  
  */
 
 public class LongestIncreasingSubsequence {

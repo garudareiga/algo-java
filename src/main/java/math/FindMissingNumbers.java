@@ -16,7 +16,7 @@ import com.google.common.base.Joiner;
 public class FindMissingNumbers {
     public String findMissingNumbers(int[] A) {
         ArrayList<String> result = new ArrayList<String>();
-        int l = 0, r = 0;
+        int l = 0, r = 0; // l: the number supposed to be
         for (int i = 0; i < A.length; i++) {
             if (l != A[i]) {
                 r = A[i] - 1;

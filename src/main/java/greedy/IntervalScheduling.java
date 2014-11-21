@@ -15,6 +15,8 @@ import com.google.common.collect.*;
  * For example,
  * Input (1,4), (4,5), (3,4), (2,3)
  * Output: 1) false and 2) 2 rooms
+ * 
+ * http://www.cs.rit.edu/~zjb/courses/800/lec8.pdf
  */
 
 public class IntervalScheduling {

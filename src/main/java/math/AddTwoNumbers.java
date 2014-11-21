@@ -1,10 +1,14 @@
 package math;
 
 /*
+ *
+ * @author raychen
+ * 
+ * Problem:
  * Given two strings
- * A =  " 41340"
- * B = "1567312"
- *   --> "1608652"
+ * A =   " 41340"
+ * B =  "1567312"
+ *   -> "1608652"
  */
 
 public class AddTwoNumbers {

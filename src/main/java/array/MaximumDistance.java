@@ -9,34 +9,38 @@ import java.util.*;
  * Problem:
  * Given an array A of integers, find the maximum of j-i subjected to the 
  * constraint of A[i] < A[j].
+ * 
+ * http://leetcode.com/2011/05/a-distance-maximizing-problem.html
  */
 
 public class MaximumDistance {
-    class IntObj implements Comparable<Object> {
+    class Line implements Comparable<Line> {
         public int value;
-        public int original_index;
+        public int index;
 
-        public int compareTo(Object r) {
-            return this.value - ((IntObj)r).value;
+        public Line(int value, int index) {
+            this.value = value; this.index = index;
+        }
+        
+        public int compareTo(Line r) {
+            if (this.value == r.value)
+                return this.index - r.index;
+            return this.value - r.value;
         }
     }
     
     int maximumDistance(int[] A) {
         int len = A.length;
-        ArrayList<IntObj> array = new ArrayList<IntObj>();
-        for (int i = 0; i < len; i++) {
-            IntObj obj = new IntObj();
-            obj.value = A[i];
-            obj.original_index = i;
-            array.add(obj);
-        }
+        ArrayList<Line> lines = new ArrayList<Line>();
+        for (int i = 0; i < len; i++)
+            lines.add(new Line(A[i], i));
              
-        Collections.sort(array);
+        Collections.sort(lines);
         int maxDist = 0, r = len - 1;
         for (int i = len - 2; i >= 0; i--) {
-            if (array.get(i).original_index < array.get(r).original_index) {
-                if (array.get(i).value < array.get(r).value)
-                    maxDist = Math.max(maxDist, array.get(r).original_index - array.get(i).original_index);
+            if (lines.get(i).index < lines.get(r).index) {
+                if (lines.get(i).value < lines.get(r).value) 
+                    maxDist = Math.max(maxDist, lines.get(r).index - lines.get(i).index);
             } else
                 r = i;
         }

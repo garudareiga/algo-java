@@ -1,4 +1,4 @@
-package design;
+package Iteration;
 
 import java.util.*;
 
@@ -25,7 +25,7 @@ public class FilterItr<T> implements Filter<T> {
     
     public T next() {
         if (!hasNext())
-            throw new NoSuchElementException();
+            throw new IllegalArgumentException();
         T r = next;
         filter();
         return r;

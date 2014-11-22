@@ -32,16 +32,16 @@ public class NutsAndBolts {
 	
 	private void match(Nut N[], Bolt B[], int lo, int hi) {
 		if (lo >= hi) return;
-		NutBoltMatchObject pivotal_n = N[lo], pivotal_b = null;
+		NutBoltMatchObject pivotal_nut = N[lo], pivotal_bolt = null;
 		for (int k = lo; k <= hi; k++) {
-			if (compare(pivotal_n, B[k]) == 0) {
+			if (compare(pivotal_nut, B[k]) == 0) {
 				swap(B, lo, k);
 				break;
 			}
 		}
-		pivotal_b = B[lo];
-		int m = partition(N, lo, hi, pivotal_b);
-		partition(B, lo, hi, pivotal_n);
+		pivotal_bolt = B[lo];
+		int m = partition(N, lo, hi, pivotal_bolt);
+		partition(B, lo, hi, pivotal_nut);
 		match(N, B, lo, m - 1);
 		match(N, B, m + 1, hi);
 	}

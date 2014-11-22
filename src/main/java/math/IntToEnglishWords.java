@@ -1,7 +1,7 @@
 package math;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
+import com.google.common.base.Joiner;
 
 /**
  * 
@@ -15,7 +15,7 @@ import java.util.Collections;
 
 public class IntToEnglishWords {
     private static String[] nums = {
-        "Zero",
+        "",
         "One",
         "Two",
         "Three",
@@ -65,26 +65,23 @@ public class IntToEnglishWords {
             value /= 1000;
         }
               
-        StringBuilder sb = new StringBuilder();
         Collections.reverse(result);
-        for (String str : result)
-            sb.append(str + " ");
-        return sb.toString();
+        return Joiner.on(" ").join(result);
     }
     
     public String convert_hundreds(int value) {
-        StringBuilder sb = new StringBuilder();
+        List<String> strs = new ArrayList<String>();
         if (value >= 100) {
-            sb.append(nums[value/100] + " Hundred ");
+            strs.add(nums[value/100] + " Hundred");
             value %= 100;
         }
         if (value >= 20) {
-            sb.append(tenNums[value/10] + " ");
+            strs.add(tenNums[value/10]);
             value %= 10;
         }
         if (value > 0)
-            sb.append(nums[value]);
-        return sb.toString().trim();
+            strs.add(nums[value]);
+        return Joiner.on(" ").join(strs);
     }
     
     public static void main(String[] args) {

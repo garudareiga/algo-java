@@ -19,7 +19,7 @@ package math;
  * 
  * http://www.geeksforgeeks.org/majority-element/
  * 
- * Can be extened to N/3 majority problem
+ * Can be extended to N/3 majority problem
  * 
  * Pick 3 different numbers and eliminate them 
  * If we have 3 left, no majority number exists.

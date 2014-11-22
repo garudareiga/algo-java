@@ -4,8 +4,11 @@ import java.util.*;
 
 /*
  * Problem:
+ * Ugly numbers are numbers whose only prime factors are 2, 3 or 5
+ * 
  * Print all ugly number in the range [1, N]
- * http://www.geeksforgeeks.org/ugly-numbers/
+ * 
+ * c
  */
 
 public class UglyNumber {

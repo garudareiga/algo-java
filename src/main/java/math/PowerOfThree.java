@@ -18,12 +18,22 @@ public class PowerOfThree {
             }
         }
         return n == 1;
+ 
+// Another solution:        
+//        while (n > 1) {
+//            int d = 3;
+//            while (n >= d) {
+//                if (n % d != 0) return false;
+//                n /=d; d *= d;
+//            }
+//        }
+//        return true;
     }
     
     public static void main(String[] args) {
         PowerOfThree sol = new PowerOfThree();
-        System.out.println(sol.isPowerOfThree(243));
-        System.out.println(sol.isPowerOfThree(240));
-        System.out.println(sol.isPowerOfThree(43046721));
+        System.out.println(sol.isPowerOfThree(243)); // true
+        System.out.println(sol.isPowerOfThree(240)); // false
+        System.out.println(sol.isPowerOfThree(43046721)); // true
     }
 }

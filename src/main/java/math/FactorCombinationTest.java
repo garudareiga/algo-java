@@ -10,7 +10,7 @@ public class FactorCombinationTest {
 	@Test
 	public void test() {
 		FactorCombination sol = new FactorCombination();
-		List<List<Integer>> result = sol.find(24);
+		List<List<Integer>> result = sol.combination(24);
 		for (List<Integer> lt : result) {
 			for (Integer v : lt) 
 				System.out.print(v + " ");

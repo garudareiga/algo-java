@@ -53,10 +53,8 @@ public class BinaryTreeAllPath {
 			return;
 		}
 		stack.push(root.val);
-		if (root.left != null)
-			all_path_recursive(root.left, stack, result);
-		if (root.right != null)
-			all_path_recursive(root.right, stack, result);
+		if (root.left != null) all_path_recursive(root.left, stack, result);
+		if (root.right != null) all_path_recursive(root.right, stack, result);
 		stack.pop();
 	}
 	

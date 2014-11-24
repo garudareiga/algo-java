@@ -31,13 +31,14 @@ public class ConvertBT2DoublyLinkedList {
     }
     
     public static void main(String[] args) {
-        /*    binary tree
+        /* binary tree
          *           30                  
          *          /  \                
          *        20    40               
          *       /     /  \                   
          *     10     35  50                
          *                
+         * 10 <-> 20 <-> 30 <-> 35 <-> 40 <-> 50               
          */                           
          TreeNode node_1 = new TreeNode(30),
                  node_2 = new TreeNode(20),

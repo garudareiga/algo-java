@@ -21,11 +21,12 @@ import java.util.*;
 
 public class BinaryTreeMirror {
     public void mirror(TreeNode root) {
+        if (root == null) return;
         mirrorIterative(root);
     }
     
     public void mirrorRecursive(TreeNode root) {
-        if (root == null || (root.left == null && root.right == null)) return;
+        if (root.left == null && root.right == null) return;
         TreeNode left = root.left, right = root.right;
         root.left = right; 
         root.right = left;

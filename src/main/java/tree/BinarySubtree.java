@@ -2,7 +2,11 @@ package tree;
 
 import util.TreeNode;
 
-/*
+/**
+ * 
+ * @author raychen
+ * 
+ * Problem:
  * Check if a small binary tree is subtree of another big binary tree
  */
 

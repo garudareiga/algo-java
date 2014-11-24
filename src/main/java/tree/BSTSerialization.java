@@ -30,21 +30,21 @@ public class BSTSerialization {
     }
     
     public TreeNode deserialize(InputStream is) throws IOException {
-        value = is.read();
+        this.value = is.read();
         TreeNode root = deserialize(is, Integer.MIN_VALUE, Integer.MAX_VALUE);
         return root;
     }
     
     public TreeNode deserialize(InputStream is, int min, int max) throws IOException {
-        if (value > min && value < max) {
-            TreeNode n = new TreeNode(value);
+        if (this.value > min && this.value < max) {
+            TreeNode n = new TreeNode(this.value);
             /*
              * Tricky!!!
              * We need use this.value instead of passing value, cause we need preserve
              * value when we traverse backwards
              */
-            value = is.read();
-            if (value != -1) { 
+            this.value = is.read();
+            if (this.value != -1) { 
                 n.left = deserialize(is, min, n.val);
                 n.right = deserialize(is, n.val, max);
             } else 

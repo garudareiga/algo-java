@@ -1,5 +1,7 @@
 package dynamicProgramming;
 
+import java.util.*;
+
 /**
  * 
  * @author raychen
@@ -35,6 +37,10 @@ package dynamicProgramming;
 
 public class LongestIncreasingSubsequence {
     public int find(int[] A) {
+        /*
+         * Time Complexity: O(n^2)
+         * Space Complexity: O(n)
+         */
         int maxLen = 1;
         int[] result = new int[A.length];
         for (int i = 0; i < A.length; i++) {
@@ -47,5 +53,26 @@ public class LongestIncreasingSubsequence {
             }
         }
         return maxLen;
+    }
+    
+    public int longestIncreasingSubsequence(int[] A) {
+        ArrayList<Integer> array = new ArrayList<Integer>();
+        for (int i = 0; i < A.length; i++) {
+            if (array.isEmpty() || array.get(array.size() - 1) < A[i]) array.add(A[i]);
+            else replace(array, A[i]);
+        }
+        System.out.println(array.toString());
+        return array.size();
+    }
+    
+    private void replace(ArrayList<Integer> array, int value) {
+        int l = 0, r = array.size() - 1;
+        while (l <= r) {
+            int m = (l + r)/2;
+            if (array.get(m) < value) l = m + 1;
+            else if (array.get(m) > value) r = m - 1;
+            else return;
+        }
+        array.set(l, value);
     }
 }

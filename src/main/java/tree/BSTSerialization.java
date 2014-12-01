@@ -40,8 +40,9 @@ public class BSTSerialization {
             TreeNode n = new TreeNode(this.value);
             /*
              * Tricky!!!
-             * We need use this.value instead of passing value, cause we need preserve
-             * value when we traverse backwards
+             * We need use this.value instead of passing value, cause we need track
+             * value change when we traverse backwards. In other words, value is different
+             * calling deserialize on left and right.
              */
             this.value = is.read();
             if (this.value != -1) { 

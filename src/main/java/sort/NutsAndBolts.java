@@ -3,7 +3,7 @@ package sort;
 /* 
  * Given a collection of n nuts of distinct sizes and n bolts such that 
  * there is a one-to-one correspondence between the nuts and the bolts, 
- * find for each nut its corresponding bolt.Ó We can only compare nuts 
+ * find for each nut its corresponding bolt. We can only compare nuts 
  * to bolts i.e., we can neither compare nuts to nuts nor bolts to bolts.
  */
 

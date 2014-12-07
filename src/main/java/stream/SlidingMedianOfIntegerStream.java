@@ -1,4 +1,4 @@
-package math;
+package stream;
 
 import com.google.common.collect.MinMaxPriorityQueue;
 
@@ -7,11 +7,11 @@ import com.google.common.collect.MinMaxPriorityQueue;
  * @author raychen
  * 
  * Problem:
- * Find running median of a infinite stream of integers
+ * Find sliding median in a window of a infinite stream of integers
  * 
  */
 
-public class MedianOfIntegerStream {
+public class SlidingMedianOfIntegerStream {
     /**
      * Using maxHeap and minHeap to store the values smaller and larger than
      * the current effective median.
@@ -69,7 +69,7 @@ public class MedianOfIntegerStream {
     }
     
     public static void main(String[] args) {
-        MedianOfIntegerStream sol = new MedianOfIntegerStream();
+        SlidingMedianOfIntegerStream sol = new SlidingMedianOfIntegerStream();
         int[] A = {5, 15, 1, 3, 10, 2};
         for (int v : A) {
             System.out.println(String.format("Median of add %d: %.2f", v, sol.median(v)));

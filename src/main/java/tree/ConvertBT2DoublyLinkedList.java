@@ -1,6 +1,7 @@
 package tree;
 
 import util.TreeNode;
+import java.util.*;
 
 /**
  * 
@@ -28,6 +29,23 @@ public class ConvertBT2DoublyLinkedList {
         }
         prev = root;
         convertRecursive(root.right);
+    }
+    
+    void convertIterative(TreeNode root) {
+        TreeNode p = root;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        while (p != null || !stack.isEmpty()) {
+            if (p != null) {
+                stack.push(p);
+                p = p.left;
+            } else {
+                p = stack.pop();
+                if (prev == null) { head = p; }
+                else { prev.right = p; p.left = prev; }
+                prev = p;
+                p = p.right;
+            }
+        }
     }
     
     public static void main(String[] args) {

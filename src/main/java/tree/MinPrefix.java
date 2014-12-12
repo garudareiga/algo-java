@@ -2,7 +2,6 @@ package tree;
 
 import java.util.*;
 import util.LowerCaseTrie;
-import util.LowerCaseTrie.TrieNode;
 
 /**
  * 
@@ -22,13 +21,13 @@ import util.LowerCaseTrie.TrieNode;
 
 public class MinPrefix {
 	HashMap<String, String> minPrefix(String[] words) {
-		TrieNode root = new TrieNode();
-		for (String word : words)
-			LowerCaseTrie.insertString(root, word);
+		LowerCaseTrie trie = new LowerCaseTrie();
+		for (int i = 0; i < words.length; i++)
+			trie.put(words[i], i);
 		
 		HashMap<String, String> minPrefix = new HashMap<String, String>();
 		for (String word : words) {
-			String prefix = LowerCaseTrie.minPrefix(root, word);
+			String prefix = trie.minPrefix(word);
 			minPrefix.put(word, prefix);
 		}
 		return minPrefix;

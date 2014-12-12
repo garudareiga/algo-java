@@ -4,9 +4,9 @@ public class MyHashMap<K, V> {
     public static class Entry<K, V> {
         K key;
         V value;
-        Entry next;
+        Entry<K, V> next;
         
-        Entry(K key, V value, Entry next) {
+        Entry(K key, V value, Entry<K, V> next) {
             this.key = key; this.value = value; this.next = next;
         }
     }
@@ -38,7 +38,7 @@ public class MyHashMap<K, V> {
                 return;
             }
         }
-        table[i] = new Entry(key, value, table[i]);
+        table[i] = new Entry<K, V>(key, value, table[i]);
         if (++size > threshold) resize();
     }
 
@@ -47,7 +47,7 @@ public class MyHashMap<K, V> {
         int newCapacity = table.length*2;
         threshold = (int)(newCapacity*loadFactor);
         
-        Entry[] newTable = new Entry[newCapacity];
+        Entry<K, V>[] newTable = new Entry[newCapacity];
         for (int i = 0; i < table.length; i++) {
             Entry<K, V> e = table[i];
             if (e != null) {
@@ -64,7 +64,7 @@ public class MyHashMap<K, V> {
     }
 
     private int indexFor(int hashCode) {
-        return hashCode%table.length;
+        return (hashCode & 0x7FFFFFFF) %table.length;
     }
 
     public V get(K key) {

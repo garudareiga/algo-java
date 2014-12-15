@@ -21,7 +21,7 @@ import java.util.*;
  * You should return [1,2,4,3,5,7,6,8,10,9,11,12].
  * 
  * http://www.geeksforgeeks.org/print-matrix-diagonally/
- * The diagonal printing of matrix[ROW][COL] always has ROW + COL Ð 1 lines in output.
+ * The diagonal printing of matrix[ROW][COL] always has ROW + COL - 1 lines in output.
  */
 
 public class DiagonalMatrix {
@@ -58,6 +58,19 @@ public class DiagonalMatrix {
            while (row >=0 && col < numc) 
                System.out.print(matrix[row--][col++] + " ");
            System.out.println();
+        }
+    }
+    
+    public void diagonalZigZag(int[][] matrix) {
+        int nrow = matrix.length, ncol = matrix[0].length;
+        for (int k = 0; k < nrow + ncol - 1; k++) {
+            int sr = k < ncol ? 0 : k%ncol + 1,
+                sc = k - sr;
+            ArrayList<Integer> array = new ArrayList<Integer>();
+            while (sr < nrow && sc >= 0)
+                array.add(matrix[sr++][sc--]);
+            if (k % 2 == 1) Collections.reverse(array);
+            System.out.println(array.toString());
         }
     }
 }

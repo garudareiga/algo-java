@@ -11,7 +11,10 @@ public class DiagonalMatrixTest {
 	@Test
 	public void test() {
 		int matrix[][] = {
-			{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}
+			{1,   2,  3}, 
+			{4,   5,  6}, 
+			{7,   8,  9}, 
+			{10, 11, 12}
 		};
 		DiagonalMatrix sol = new DiagonalMatrix();
 		List<Integer> result = sol.diagonalOrder(matrix);
@@ -20,7 +23,10 @@ public class DiagonalMatrixTest {
 		System.out.println();
 		assertEquals(12, result.size());
 		
+		System.out.println("Diagonal:");
 		sol.diagonalOrder_2(matrix);
+		System.out.println("ZigZag:");
+		sol.diagonalZigZag(matrix);
 	}
 
 }

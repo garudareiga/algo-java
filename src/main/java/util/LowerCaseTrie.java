@@ -7,13 +7,11 @@ public class LowerCaseTrie {
     
 	public static class TrieNode {
 		private TrieNode[] children = new TrieNode[26];
-		//private boolean leaf;
 		private int index;    // index of word in the dictionary
 		private int wordCount;
 		
 		public TrieNode() {
 			Arrays.fill(children, null);
-			//leaf = false;
 			index = -1;
 			wordCount = 0;
 		}

@@ -31,4 +31,8 @@ public class Interval implements Comparable<Interval> {
     public int compareTo(Interval interval) {
         return this.start - interval.start;
     }
+    
+    public String toString() {
+        return String.format("[%d, %d]", start, end);
+    }
 }

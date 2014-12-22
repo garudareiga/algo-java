@@ -28,17 +28,22 @@ public class IsomorphicString {
         for (int i = 0; i < str1.length(); i++) {
             char c1 = str1.charAt(i),
                  c2 = str2.charAt(i);
-            if (map1.containsKey(c1)) {
+            if (map1.containsKey(c1))
                 if (map1.get(c1) != c2)
                     return false;
-            }
-            if (map2.containsKey(c2)) {
+            if (map2.containsKey(c2))
                 if (map2.get(c2) != c1)
                     return false;
-            }
             map1.put(c1, c2);
             map2.put(c2, c1);
         }
         return true;
+    }
+    
+    public static void main(String[] args) {
+        IsomorphicString sol = new IsomorphicString();
+        System.out.println(sol.isIsomorphic("foo", "app"));
+        System.out.println(sol.isIsomorphic("bar", "foo"));
+        System.out.println(sol.isIsomorphic("ab",  "ca"));
     }
 }

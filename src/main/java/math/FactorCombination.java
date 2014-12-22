@@ -36,8 +36,8 @@ public class FactorCombination {
             lt.add(dividend);
             result.add(lt);
         }
-        int start = stack.isEmpty() ? 2 : stack.peek();
-        for (int divisor = start; divisor < dividend; divisor++) {
+        int divisor = stack.isEmpty() ? 2 : stack.peek();
+        for (; divisor < dividend; divisor++) {
             if (dividend/divisor < divisor) break;
             if (dividend%divisor == 0) {
                 int quotient = dividend/divisor;
@@ -46,33 +46,5 @@ public class FactorCombination {
                 stack.pop();
             }
         }
-    }
-
-    public List<List<Integer>> find_1(int value) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        Stack<Integer> stack = new Stack<Integer>();
-        stack.push(value);
-        dfs_1(stack, result);
-        stack.pop();
-        return result;
-    }
-	
-    private void dfs_1(Stack<Integer> stack, List<List<Integer>> result) {
-        int dividend = stack.pop();
-        int start = stack.isEmpty() ? 2 : stack.peek();
-        for (int divisor = start; divisor < dividend; divisor++) {
-            if (dividend / divisor < divisor) break;
-            if (dividend % divisor == 0) {
-            	int quotient = dividend / divisor;
-            	stack.push(divisor);
-            	stack.push(quotient);
-            	List<Integer> curr = new ArrayList<Integer>(stack);
-            	result.add(curr);
-            	dfs_1(stack, result);
-            	stack.pop();
-            	stack.pop();
-            }
-        }
-        stack.push(dividend);
     }
 }

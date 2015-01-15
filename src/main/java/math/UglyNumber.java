@@ -8,7 +8,6 @@ import java.util.*;
  * 
  * Print all ugly number in the range [1, N]
  * 
- * c
  */
 
 public class UglyNumber {
@@ -19,6 +18,22 @@ public class UglyNumber {
                 result.add(i);
         }
         return result;
+    }
+    
+    public int getNthUglyNumber(int N) {
+        int nextUglyNumber = 1;
+        int[] uglyNumbers = new int[N];
+        uglyNumbers[0] = nextUglyNumber;
+        int indexBy2 = 0, indexBy3 = 0, indexBy5 = 0;
+        for (int i = 1; i < N; i++) {
+            nextUglyNumber = Math.min(uglyNumbers[indexBy2]*2, 
+                    Math.min(uglyNumbers[indexBy3]*3, uglyNumbers[indexBy5]*5));
+            uglyNumbers[i] = nextUglyNumber;
+            if (nextUglyNumber == uglyNumbers[indexBy2]*2) { indexBy2 += 1; }
+            if (nextUglyNumber == uglyNumbers[indexBy3]*3) { indexBy3 += 1; }
+            if (nextUglyNumber == uglyNumbers[indexBy5]*5) { indexBy5 += 1; }
+        }
+        return nextUglyNumber;
     }
 
     private boolean isUglyNumber(int i) {
@@ -40,5 +55,8 @@ public class UglyNumber {
         List<Integer> r = sol.getUglyNumbers(20);
         for (Integer n : r)
             System.out.print(n + " ");
+        System.out.println();
+        
+        System.out.println("The 150th ugly number is " + sol.getNthUglyNumber(150));
     }
 }

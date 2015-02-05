@@ -42,5 +42,12 @@ public class MinPrefix {
 				System.out.println(entry.getKey() + ": " + entry.getValue());
 			}
 		}
+		{
+			String[] words = {"bearcat", "bear"};
+			HashMap<String, String> minPrefix = mp.minPrefix(words);
+			for (Map.Entry<String, String> entry : minPrefix.entrySet()) {
+				System.out.println(entry.getKey() + ": " + entry.getValue());
+			}
+		}
 	}
 }
